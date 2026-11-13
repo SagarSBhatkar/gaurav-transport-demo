@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gaurav Transport</title>
+<style>
+:root{--bg:#eef0f3;--card:#fff;--tx:#1b1f27;--mut:#667085;--bd:#d6dae1;--ac:#c8262c;--acx:#fff;--bl:#1747b8;--ok:#1f7a4d;--paper:#fbeff3;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14171c;--card:#1d2128;--tx:#e8eaee;--mut:#9aa3b2;--bd:#323844;--ac:#ff6b70;--acx:#1b0a0b;--ok:#4cc38a;--paper:#2a2024}}
+:root[data-theme="dark"]{--bg:#14171c;--card:#1d2128;--tx:#e8eaee;--mut:#9aa3b2;--bd:#323844;--ac:#ff6b70;--acx:#1b0a0b;--ok:#4cc38a;--paper:#2a2024}
+*{box-sizing:border-box}html,body{margin:0}body{background:var(--bg);color:var(--tx);font:15px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:780px;margin:0 auto;padding:14px}
+h1{font:700 21px Georgia,serif;margin:0}h2{font-size:16px;margin:18px 0 8px}
+.brand{display:flex;align-items:center;gap:10px;cursor:pointer}
+.logo{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:10px;background:var(--bl);color:#fff;font:700 18px Georgia,serif;letter-spacing:1px;flex:none}
+.nav{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.nav div.l{display:flex;gap:6px;flex-wrap:wrap}
+.tabs{display:flex;gap:6px;margin:12px 0;overflow-x:auto}
+.tb,.tabs button{padding:8px 12px;border:1px solid var(--bd);background:var(--card);color:var(--tx);border-radius:8px;font:inherit;cursor:pointer;white-space:nowrap}
+.tb.on,.tabs button.on{background:var(--bl);color:#fff;border-color:var(--bl);font-weight:600}
+.hero{background:var(--bl);color:#fff;border-radius:14px;padding:26px 20px;margin:6px 0 14px}
+.hero h2{font:700 28px/1.15 Georgia,serif;margin:0 0 8px}.hero p{margin:0 0 14px;max-width:480px;opacity:.92}
+.hero .b{background:#fff;color:var(--bl)}.hero .b.s{background:transparent;color:#fff;border:1px solid #fff}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:12px;margin:8px 0}
+.g{display:grid;grid-template-columns:1fr 1fr;gap:8px}@media(max-width:480px){.g{grid-template-columns:1fr}}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:8px}
+.steps .card{margin:0}.steps .n{display:inline-flex;width:26px;height:26px;border-radius:50%;background:var(--bl);color:#fff;align-items:center;justify-content:center;font-weight:700;margin-bottom:4px}
+label{display:block;font-size:13px;color:var(--mut)}
+input,select{width:100%;padding:8px;margin-top:2px;border:1px solid var(--bd);border-radius:6px;background:var(--bg);color:var(--tx);font:inherit}
+button.b{padding:9px 14px;border:0;border-radius:8px;background:var(--ac);color:var(--acx);font:inherit;font-weight:600;cursor:pointer;margin-top:8px}
+button.s{background:transparent;color:var(--tx);border:1px solid var(--bd)}
+.row{display:flex;justify-content:space-between;gap:8px;align-items:flex-start;flex-wrap:wrap}
+.bd{display:inline-block;padding:2px 8px;border-radius:99px;font-size:12px;border:1px solid var(--bd);color:var(--mut)}
+.bd.ok{color:var(--ok);border-color:var(--ok)}.bd.no{color:var(--ac);border-color:var(--ac)}
+.mut{color:var(--mut);font-size:13px}.fare{font:700 20px Georgia,serif}
+#toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--tx);color:var(--bg);padding:9px 16px;border-radius:8px;display:none;z-index:30;max-width:90%}
+.ov{position:fixed;inset:0;background:rgba(0,0,0,.55);overflow:auto;padding:12px;z-index:20}
+.lr{max-width:720px;margin:0 auto;background:var(--paper);border:2px solid var(--ac);color:var(--ac);padding:12px;font-size:13px}
+.lr b{display:block;color:var(--tx);font-size:14px;min-height:18px;border-bottom:1px dotted var(--ac)}
+.lr .hd{text-align:center;border-bottom:2px solid var(--ac);padding-bottom:6px;margin-bottom:8px}.lr .hd h3{margin:0;font:700 22px Georgia,serif}
+.lr .hd .logo{display:flex;width:46px;height:46px;margin:0 auto 4px}
+.lr .gr{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:8px 0}.lr .w2{grid-column:span 2}.lr .w4{grid-column:span 4}
+.lr .ch{display:inline-block;width:13px;height:13px;border:1.5px solid var(--ac);margin:0 3px -2px 8px;text-align:center;line-height:10px;font-size:12px}
+.lr .tm{font-size:11px;margin-top:8px;border-top:1px solid var(--ac);padding-top:6px}
+@media print{body *{visibility:hidden}.ov,.ov *{visibility:visible}.ov{position:absolute;background:none;padding:0}.noprint{display:none!important}}
+</style></head><body>
+<div class="wrap"><div class="nav" id="nav"></div><div id="app"></div></div>
+<div id="lrov"></div><div id="toast"></div>
+<script>
+const KEY='gt_app_v2',today=()=>new Date().toISOString().slice(0,10);
+const ST={new:'Waiting for owner',published:'Finding a truck',accepted:'Truck confirmed',loaded:'Loaded',transit:'In transit',delivered:'Delivered',rejected:'Declined'};
+const NEXT={accepted:['loaded','Mark loaded'],loaded:['transit','Start trip'],transit:['delivered','Mark delivered']};
+let S,view='home',session=null,otab='req',lrId=null,ref=null,lastJ='',trk=null,pend=null,pt=null;
+function stopSync(){clearInterval(pt);ref=null}
+const esc=v=>String(v==null?'':v).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const $=id=>document.getElementById(id),val=id=>($(id)?$(id).value.trim():'');
+const D=id=>S.drivers.find(d=>d.id===id),L=id=>S.loads.find(l=>l.id===id),expired=d=>d.exp<today();
+function seed(){return{owner:{mob:'9999999999',pin:'1234'},profile:{name:'Gaurav Transport',addr:'Transport Nagar, Akola',city:'Akola',gst:'',pan:'',mob:''},seq:1,rseq:1001,
+drivers:[{id:'d1',name:'Ramesh Patil',mob:'9876500001',pin:'1111',truck:'MH30 AB 1234',exp:'2027-06-30',ok:true,ret:''},{id:'d2',name:'Suresh Jadhav',mob:'9876500002',pin:'2222',truck:'MH30 CD 5678',exp:'2026-01-15',ok:true,ret:''}],loads:[]}}
+function loadLocal(){try{const r=localStorage.getItem(KEY);if(r)return JSON.parse(r)}catch(e){}return seed()}
+function saveLocal(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+function toast(m){const t=$('toast');t.textContent=m;t.style.display='block';clearTimeout(toast.t);toast.t=setTimeout(()=>t.style.display='none',2800)}
+async function pull(first){if(!ref)return;try{const s=await ref.get();if(s.exists){const j=s.data().json;if(j!==lastJ){lastJ=j;S=JSON.parse(j);saveLocal();const a=document.activeElement;if(!a||!/INPUT|SELECT/.test(a.tagName))render()}}else if(first){lastJ=JSON.stringify(S);ref.set({json:lastJ}).catch(()=>{})}}catch(e){}}
+async function init(){S=loadLocal();render();try{const db=await claude.use('db');if(db){ref=db.doc('app/state');await pull(true);pt=setInterval(pull,4000)}}catch(e){}}
+async function act(fn,msg){if(ref){try{const s=await ref.get();if(s.exists)S=JSON.parse(s.data().json)}catch(e){}}
+if(fn()===false)return;saveLocal();if(ref){try{const j=JSON.stringify(S);await ref.set({json:j});lastJ=j}catch(e){stopSync();toast('Saved on this device only. Sign in to Claude to share across phones.')}}render();if(msg)toast(msg)}
+function go(v){view=v;trk=null;render()}
+function login(r){const m=val('l_m'),p=val('l_p');
+if(r==='owner'){if(m===S.owner.mob&&p===S.owner.pin){session={r:'owner'};view='owner';render()}else toast('Wrong mobile or PIN.')}
+else{const d=S.drivers.find(x=>x.mob===m&&x.pin===p);if(d){session={r:'driver',id:d.id};view='driver';render()}else toast('Wrong mobile or PIN.')}}
+function logout(){session=null;view='home';render()}
+function render(){
+const inn=session&&(view==='owner'||view==='driver');
+$('nav').innerHTML=`<div class="brand" onclick="go('${session?view:'home'}')"><span class="logo">GT</span><h1>${esc(S.profile.name)}</h1></div>`+(inn?`<div class="l"><span class="mut">${view==='owner'?'Owner':esc((D(session.id)||{}).name)}</span><button class="tb" onclick="logout()">Log out</button></div>`:`<div class="l">${[['home','Home'],['send','Transport now'],['track','Track goods'],['lo','Owner login'],['ld','Driver login']].map(([k,n])=>`<button class="tb ${view===k?'on':''}" onclick="go('${k}')">${n}</button>`).join('')}</div>`);
+$('app').innerHTML={home:vHome,send:vSend,track:vTrack,lo:()=>vLogin('owner'),ld:()=>vLogin('driver'),owner:vOwner,driver:vDriver}[view]();
+$('lrov').innerHTML=lrId?vLR(L(lrId)):''}
+function vHome(){return`<div class="hero"><h2>Send goods. A truck is already heading that way.</h2><p>Tell us what to move and where. Our transport desk confirms the fare and assigns a verified truck. No sign-up needed.</p><button class="b" onclick="go('send')">Transport now</button> <button class="b s" onclick="go('track')">Track my goods</button></div>
+<h2>How it works</h2><div class="steps">
+<div class="card"><span class="n">1</span><b> Send your request</b><div class="mut">Tap Transport now. Enter the goods, quantity, pickup and drop. You get a request ID right away.</div></div>
+<div class="card"><span class="n">2</span><b> Owner sets the fare</b><div class="mut">${esc(S.profile.name)} reviews your request, sets the fare and posts the load for drivers.</div></div>
+<div class="card"><span class="n">3</span><b> A verified driver accepts</b><div class="mut">Only drivers whose truck documents the owner has checked can see and accept loads, including trucks returning your way.</div></div>
+<div class="card"><span class="n">4</span><b> Track and receive</b><div class="mut">You get the truck number, driver mobile and a lorry receipt (LR). Follow the trip with your request ID.</div></div></div>
+<h2>For drivers and owners</h2><div class="g"><div class="card"><b>Drivers</b><div class="mut">Returning empty? Enter your return city and see loads going that way. Accept in one tap and the LR is made for you.</div><button class="b s" onclick="go('ld')">Driver login</button></div>
+<div class="card"><b>Transport owners</b><div class="mut">Receive requests, set fares, add and verify drivers, and issue lorry receipts from one screen.</div><button class="b s" onclick="go('lo')">Owner login</button></div></div>`}
+function vSend(){const f=(id,lb,t='text',v='')=>`<label>${lb}<input id="${id}" type="${t}" value="${v}"></label>`;
+return`<h2>Transport now</h2><div class="card"><div class="g">${f('c_from','Pickup city')}${f('c_to','Drop city')}${f('c_goods','Goods (e.g. cement bags)')}${f('c_weight','Weight (e.g. 10 ton)')}${f('c_pkgs','No. of packages','number')}${f('c_pack','Packing (bags, boxes, loose)')}${f('c_consignor','Your name or firm')}${f('c_cmob','Your mobile','tel')}${f('c_consignee','Receiver name or firm')}${f('c_rmob','Receiver mobile','tel')}${f('c_date','Pickup date','date',today())}${f('c_inv','Invoice no. (optional)')}${f('c_eway','E-way bill no. (optional)')}</div><button class="b" onclick="addReq()">Send request</button></div>`}
+function addReq(){let id;const m0=val('c_cmob');act(()=>{const l={consignor:val('c_consignor'),cmob:val('c_cmob'),consignee:val('c_consignee'),rmob:val('c_rmob'),goods:val('c_goods'),pkgs:val('c_pkgs'),pack:val('c_pack'),weight:val('c_weight'),from:val('c_from'),to:val('c_to'),date:val('c_date'),inv:val('c_inv'),eway:val('c_eway'),status:'new'};
+if(!l.from||!l.to||!l.goods||!l.consignor||l.cmob.length<10){toast('Add pickup, drop, goods, your name and a 10-digit mobile.');return false}
+l.id='GT-'+S.rseq++;id=l.id;S.loads.unshift(l)}).then(()=>{if(id){trk={id,m:m0};view='track';render();toast('Request sent. Save ID '+id)}})}
+function vTrack(){const l=trk&&L(trk.id);const f=`<div class="card"><div class="g"><label>Request ID<input id="t_id" placeholder="GT-1001" value="${esc(trk?trk.id:'')}"></label><label>Your mobile<input id="t_m" type="tel" value="${esc(trk?trk.m:'')}"></label></div><button class="b" onclick="doTrack()">Track</button></div>`;
+if(trk&&(!l||l.cmob!==trk.m))return`<h2>Track goods</h2>${f}<p class="mut">No request found for that ID and mobile.</p>`;
+if(!l)return`<h2>Track goods</h2>${f}`;const d=D(l.driverId);
+return`<h2>Track goods</h2>${f}${loadCard(l,(l.fare?`<div class="mut">Fare ₹${esc(l.fare)} · ${esc(l.ftype)}</div>`:'')+(d?`<div class="mut">Truck ${esc(d.truck)} · Driver ${esc(d.name)} ${esc(d.mob)}</div><button class="b s" onclick="openLR('${l.id}')">View lorry receipt (LR ${l.lr})</button>`:''))}`}
+function doTrack(){trk={id:val('t_id').toUpperCase(),m:val('t_m')};render()}
+function vLogin(r){return`<h2>${r==='owner'?'Owner':'Driver'} login</h2><div class="card"><div class="g"><label>Mobile<input id="l_m" type="tel"></label><label>PIN<input id="l_p" type="password"></label></div><button class="b" onclick="login('${r}')">Log in</button><div class="mut" style="margin-top:8px">Demo: ${r==='owner'?'9999999999 / 1234':'9876500001 / 1111 (verified) or 9876500002 / 2222 (documents expired)'}. A real launch would use OTP.</div></div>`}
+function loadCard(l,extra=''){return`<div class="card"><div class="row"><div><b>${esc(l.from)} → ${esc(l.to)}</b> <span class="mut">${esc(l.id)}</span><div class="mut">${esc(l.goods)} · ${esc(l.pkgs)} ${esc(l.pack)} · ${esc(l.weight)}</div><div class="mut">${esc(l.consignor)} → ${esc(l.consignee)} · ${esc(l.date)}</div></div><span class="bd ${l.status==='delivered'?'ok':l.status==='rejected'?'no':''}">${ST[l.status]}</span></div>${extra}</div>`}
+function vOwner(){const tabs=[['req','Requests'],['trips','Trips & LRs'],['drv','Drivers'],['pro','Profile']];
+let h=`<div class="tabs">${tabs.map(([k,n])=>`<button class="${otab===k?'on':''}" onclick="otab='${k}';render()">${n}${k==='req'&&S.loads.some(l=>l.status==='new')?' •':''}</button>`).join('')}</div>`;
+if(otab==='req'){h+=`<h2>New requests</h2>`+(S.loads.filter(l=>l.status==='new').map(l=>loadCard(l,`<div class="mut">Sender ${esc(l.cmob)} · Receiver ${esc(l.rmob)}</div><div class="g"><label>Fare (₹)<input id="fare${l.id}" type="number"></label><label>Freight type<select id="ft${l.id}"><option>To Pay</option><option>Paid</option><option>TBB</option></select></label></div><button class="b" onclick="publish('${l.id}')">Publish to drivers</button> <button class="b s" onclick="rejectL('${l.id}')">Decline</button>`)).join('')||'<p class="mut">No new requests.</p>')+`<h2>Waiting for a driver</h2>`+(S.loads.filter(l=>l.status==='published').map(l=>loadCard(l,`<div class="mut">₹${esc(l.fare)} · ${esc(l.ftype)}</div>`)).join('')||'<p class="mut">Nothing published.</p>')}
+if(otab==='trips')h+=S.loads.filter(l=>l.lr).map(l=>{const d=D(l.driverId);return loadCard(l,`<div class="mut">LR ${l.lr} · ${esc(d.name)} · ${esc(d.truck)} · ₹${esc(l.fare)} ${esc(l.ftype)}</div><button class="b s" onclick="openLR('${l.id}')">Open lorry receipt</button>${l.status==='delivered'?` <button class="b s" onclick="undoDel('${l.id}')">Undo delivered</button>`:''}`)}).join('')||'<p class="mut">Confirmed trips appear here with their LR.</p>';
+if(otab==='drv')h+=`<h2>Add a driver</h2><div class="card"><div class="g"><label>Name<input id="d_n"></label><label>Mobile<input id="d_m" type="tel"></label><label>Truck number<input id="d_t"></label><label>Documents valid until<input id="d_e" type="date"></label><label>Login PIN for driver<input id="d_p" type="text" maxlength="6"></label></div><div class="mut">Check licence, RC, insurance and permit first, then tap Mark verified.</div><button class="b" onclick="addDrv()">Add driver</button></div>`+S.drivers.map(d=>`<div class="card"><div class="row"><div><b>${esc(d.name)}</b> · ${esc(d.mob)}<div class="mut">${esc(d.truck)} · documents until ${esc(d.exp)} · PIN ${esc(d.pin)}</div>${d.ret?`<div class="mut">Returning to ${esc(d.ret)}</div>`:''}</div><span class="bd ${d.ok&&!expired(d)?'ok':'no'}">${!d.ok?'Not verified':expired(d)?'Documents expired':'Verified'}</span></div><button class="b s" onclick="togV('${d.id}')">${d.ok?'Remove verification':'Mark verified'}</button></div>`).join('');
+if(otab==='pro'){const p=S.profile,f=(k,n,v)=>`<label>${n}<input id="p_${k}" value="${esc(v)}"></label>`;h+=`<h2>Company details on the LR</h2><div class="card"><div class="g">${f('name','Company name',p.name)}${f('addr','Address',p.addr)}${f('city','Jurisdiction city',p.city)}${f('mob','Mobile',p.mob)}${f('gst','GST no.',p.gst)}${f('pan','PAN',p.pan)}${f('pin','Owner login PIN',S.owner.pin)}</div><button class="b" onclick="saveP()">Save</button> <button class="b s" onclick="if(confirm('Reset all data?')){act(()=>{S=seed()},'Reset')}">Reset data</button></div>`}
+return h}
+function publish(id){const f=+val('fare'+id);if(!f)return toast('Enter the fare first.');act(()=>{const l=L(id);l.fare=f;l.ftype=val('ft'+id);l.status='published'},'Published to drivers')}
+function rejectL(id){act(()=>{L(id).status='rejected'})}
+function addDrv(){act(()=>{const d={id:'d'+Date.now(),name:val('d_n'),mob:val('d_m'),pin:val('d_p'),truck:val('d_t'),exp:val('d_e'),ok:false,ret:''};if(!d.name||!d.truck||!d.exp||d.mob.length<10||d.pin.length<4){toast('Add name, 10-digit mobile, truck, document date and a PIN of 4+ digits.');return false}S.drivers.push(d)},'Driver added')}
+function togV(id){act(()=>{const d=D(id);d.ok=!d.ok})}
+function saveP(){act(()=>{['name','addr','city','mob','gst','pan'].forEach(k=>S.profile[k]=val('p_'+k));if(val('p_pin').length>=4)S.owner.pin=val('p_pin')},'Saved')}
+const match=(d,l)=>d.ret&&l.to.toLowerCase()===d.ret.toLowerCase()?1:0;
+function vDriver(){const d=D(session.id);if(!d)return logout(),'';let h='';
+if(!d.ok||expired(d))return`<div class="card"><b>You can’t see loads yet.</b><div class="mut">${!d.ok?'Your owner has not verified your documents.':'Your documents expired on '+esc(d.exp)+'. Ask your owner to update them.'}</div></div>`;
+h+=`<div class="card"><label>Returning to (city)<input id="ret" value="${esc(d.ret)}" placeholder="Akola"></label><button class="b" onclick="setRet()">I’m returning. Find loads</button></div><h2>Available loads</h2>`;
+h+=S.loads.filter(l=>l.status==='published').sort((a,b)=>match(d,b)-match(d,a)).map(l=>loadCard(l,`<div class="row"><div class="fare">₹${esc(l.fare)}</div><span class="bd">${esc(l.ftype)}</span>${match(d,l)?'<span class="bd ok">Matches your return route</span>':''}</div><button class="b" onclick="accept('${l.id}')">Accept this load</button>`)).join('')||'<p class="mut">No loads right now. Check again soon.</p>';
+const mine=S.loads.filter(l=>l.driverId===d.id);
+return h+`<h2>My trips</h2>`+(mine.map(l=>loadCard(l,`<div class="mut">LR ${l.lr} · ₹${esc(l.fare)} ${esc(l.ftype)}</div>${NEXT[l.status]?`<button class="b" onclick="adv('${l.id}')">${pend===l.id?'Tap again to confirm delivery':NEXT[l.status][1]}</button> ${pend===l.id?`<button class="b s" onclick="pend=null;render()">Cancel</button> `:''}`:''}<button class="b s" onclick="openLR('${l.id}')">Lorry receipt</button>`)).join('')||'<p class="mut">Accepted loads show up here.</p>')}
+function setRet(){const r=val('ret');act(()=>{D(session.id).ret=r})}
+function accept(id){act(()=>{const l=L(id);if(l.status!=='published'){toast('Someone else took this load.');return false}l.status='accepted';l.driverId=session.id;l.lr=S.seq++;l.lrDate=today()},'Confirmed. LR created')}
+function adv(id){const l=L(id);if(l.status==='transit'&&pend!==id){pend=id;render();return}pend=null;act(()=>{const l=L(id);l.status=NEXT[l.status][0]})}
+function undoDel(id){act(()=>{L(id).status='transit'},'Moved back to In transit')}
+function openLR(id){lrId=id;render()}function closeLR(){lrId=null;render()}
+function vLR(l){const p=S.profile,d=D(l.driverId)||{},c=t=>`<span class="ch">${l.ftype===t?'✓':''}</span>${t}`,w=n=>{n=Math.round(n);if(!n)return'Zero';const a='One Two Three Four Five Six Seven Eight Nine Ten Eleven Twelve Thirteen Fourteen Fifteen Sixteen Seventeen Eighteen Nineteen'.split(' '),t='_ _ Twenty Thirty Forty Fifty Sixty Seventy Eighty Ninety'.split(' '),two=x=>x<20?a[x-1]||'':t[Math.floor(x/10)]+(x%10?' '+a[x%10-1]:'');let o='';for(const[v,m]of[[10000000,'Crore'],[100000,'Lakh'],[1000,'Thousand'],[100,'Hundred']]){const q=Math.floor(n/v);if(q){o+=two(q)+' '+m+' ';n%=v}}return(o+(n?two(n):'')).trim()+' Only'};
+return`<div class="ov"><div class="noprint" style="max-width:720px;margin:0 auto 8px;display:flex;gap:8px;justify-content:flex-end"><button class="b s" style="background:var(--card)" onclick="window.print()">Print</button><button class="b" onclick="closeLR()">Close</button></div>
+<div class="lr"><div class="hd"><span class="logo">${esc(p.name.split(/\s+/).slice(0,2).map(x=>x[0]||'').join('').toUpperCase())}</span><h3>${esc(p.name)}</h3><div>${esc(p.addr)} · Mob ${esc(p.mob)}</div><div>GST ${esc(p.gst)} · PAN ${esc(p.pan)}</div></div>
+<div class="gr"><div class="w2">L.R. No.<b>${l.lr}</b></div><div class="w2">Date<b>${esc(l.lrDate)}</b></div><div class="w2">From<b>${esc(l.from)}</b></div><div class="w2">To<b>${esc(l.to)}</b></div>
+<div class="w2">Consignor M/s<b>${esc(l.consignor)}</b></div><div class="w2">Consignee M/s<b>${esc(l.consignee)}</b></div><div class="w2">Consignee mob.<b>${esc(l.rmob)}</b></div><div>Invoice no.<b>${esc(l.inv)}</b></div><div>E-way no.<b>${esc(l.eway)}</b></div>
+<div>No. of pkgs<b>${esc(l.pkgs)}</b></div><div>Packing<b>${esc(l.pack)}</b></div><div>Nature of goods<b>${esc(l.goods)}</b></div><div>Weight<b>${esc(l.weight)}</b></div>
+<div class="w4">Freight ${c('TBB')}${c('Paid')}${c('To Pay')}</div><div class="w2">Freight (₹)<b>${esc(l.fare)}</b></div><div class="w2">Rs. in words<b>${w(l.fare)}</b></div>
+<div>Truck no.<b>${esc(d.truck)}</b></div><div>Driver<b>${esc(d.name)}</b></div><div>Mobile<b>${esc(d.mob)}</b></div><div>Signature<b>&nbsp;</b></div></div>
+<div class="tm">Goods booked entirely at owner’s risk. Leakage &amp; breakage is not our responsibility. Rebooking is not our responsibility. Subject to ${esc(p.city)} jurisdiction.</div></div></div>`}
+init();
+</script></body></html>
